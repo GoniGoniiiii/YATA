@@ -126,28 +126,28 @@ function chk(quantity) {
 				<p class="selectTitle">&bull; 연령 선택</p>
 				<div class="box">
 					<ul class="adult">
-						<li><button class="plus" type="button"
-								onclick="plus('adult')">+</button></li>
-						<li>성인<input type="hidden" name="adult" value="0"><span>
-								0</span></li>
 						<li><button class="minus" type="button"
 								onclick="minus('adult')">-</button></li>
+						<li>성인<input type="hidden" name="adult" value="0"><span>
+								0</span></li>
+						<li><button class="plus" type="button"
+								onclick="plus('adult')">+</button></li>
 					</ul>
 					<ul class="child">
-						<li><button class="plus" type="button"
-								onclick="plus('child')">+</button></li>
-						<li>아동<input type="hidden" name="child" value="0"><span>
-								0</span></li>
 						<li><button class="minus" type="button"
 								onclick="minus('child')">-</button></li>
+						<li>아동<input type="hidden" name="child" value="0"><span>
+								0</span></li>
+						<li><button class="plus" type="button"
+								onclick="plus('child')">+</button></li>
 					</ul>
 					<ul class="elderly">
-						<li><button class="plus" type="button"
-								onclick="plus('elderly')">+</button></li>
-						<li>노약자<input type="hidden" name="elderly" value="0"><span>
-								0</span></li>
 						<li><button class="minus" type="button"
 								onclick="minus('elderly')">-</button></li>
+						<li>노약자<input type="hidden" name="elderly" value="0"><span>
+								0</span></li>
+						<li><button class="plus" type="button"
+								onclick="plus('elderly')">+</button></li>
 					</ul>
 				</div>
 			</div>

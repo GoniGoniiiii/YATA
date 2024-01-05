@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="auto">
@@ -16,26 +18,35 @@
  </head>
  <body>
  	<header>
-	<div class="headDiv">
+		<div class="headDiv">
 			<ul class="head">
-				<li class="bigTitle"><a href="../main.jsp">YATA</a></li>
-				
+				<li class="bigTitle"><a href="main.jsp">YATA</a></li>
+
 				<li>
 					<ul class="right">
-						<li class="language">
-							<select name="language" id="language">
+						<li class="language"><select name="language" id="language">
 								<option value="한국어">한국어</option>
 								<option value="영어">English</option>
 								<option value="중국어">中文</option>
 								<option value="일본어">日本語</option>
-							</select>
-						</li>
-						<li class="myres"><a href="../myReservation.jsp" >나의예약</a></li>
-						<li class="login"><a href="../login.html" >로그인</a></li>
+						</select></li>
+						<li class="myres"><a href="../myPage.m">마이페이지</a></li> 
+						<% String
+						session_id = (String)session.getAttribute("ID");
+						if(session_id==null){ 
+						%>
+						<li class="login"><a href="../login.jsp">로그인</a></li> 
+						<% }else{ 
+						%>
+						<li class="login"><a href="../logout.m">로그아웃</a></li> 
+						<% 
+						} 
+						%>
 					</ul>
 				</li>
 			</ul>
 		</div>
+	</header>
 		<section class="bg-light">
 			<div class="container bg-white" style="border: 1px solid #7d9bfd; border-radius: 16px;">
 			<br><br>
@@ -43,9 +54,9 @@
 			<br><br>
 			<p>
 				<span>I. 회사 소개</span><br><br>
-				GoEuro 및 Omio 브랜드는 GoEuro Corp. 소속입니다(이하 "GoEuro", "Omio", "당사"). GoEuro에 대한 자세한 내용은 당사 기업 정보를 참조하시기 바랍니다.<br>
+				GoEuro 및 YATA 브랜드는 GoEuro Corp. 소속입니다(이하 "GoEuro", "YATA", "당사"). GoEuro에 대한 자세한 내용은 당사 기업 정보를 참조하시기 바랍니다.<br>
 				<br>
-				GoEuro는 GoEuro 및 Omio라는 이름으로 모바일 앱은 물론 인터넷 기반 플랫폼을 다양한 언어로 운영합니다.<br>
+				GoEuro는 GoEuro 및 YATA라는 이름으로 모바일 앱은 물론 인터넷 기반 플랫폼을 다양한 언어로 운영합니다.<br>
 				<br>
 				당사는 교통/운송 서비스와 숙박 시설을 찾아, 비교하고, 중개하는 서비스를 제공하며 직접 예약(다이렉트 부킹) 옵션이 포함된 여행 상품을 제공하기도 하지만 휴가 패키지 여행 상품은 제공하지 않습니다. <br>
 				GoEuro는 다른 대행업체와 연계되지 않은 독립적인 대행업체로서, 자체적인 교통/운송 서비스 또는 여행 상품을 제공하지 않습니다. <br>
@@ -56,8 +67,8 @@
 				본 이용 약관 ("T&Cs"), 은 당사 개인정보 보호정책과 함께 GoEuro 서비스, 웹사이트, 모바일 앱 사용을 관리하며 GoEuro와 사용자 간의 사용 계약의 기본이 됩니다. <br>
 				사용자와 GoEuro 간의 개별 계약(예: 예약 시 체결하는 계약)이 우선 적용됩니다. 사용자가 적용하고 있는 편차가 있거나 대립되는 일반 비즈니스 이용 약관은 해당되지 않습니다.<br>
 				<br>
-				위의 사항에도 불구하고, 프랑스 제공업체인 SNCF, Omio Voyages SAS, GoEuro 프랑스 자회사에서 티켓을 구입하는 사용자의 경우 예약과 관련하여 계약 당사자가 됩니다. <br>
-				해당되는 경우, 이러한 예약에서 "GoEuro" 및 "당사"는 Omio Voyages SAS 법인을 의미합니다.<br>
+				위의 사항에도 불구하고, 프랑스 제공업체인 SNCF, YATA Voyages SAS, GoEuro 프랑스 자회사에서 티켓을 구입하는 사용자의 경우 예약과 관련하여 계약 당사자가 됩니다. <br>
+				해당되는 경우, 이러한 예약에서 "GoEuro" 및 "당사"는 YATA Voyages SAS 법인을 의미합니다.<br>
 				<br>
 				본 T&Cs는 GoEuro 서비스 즉, 이동 교통편 파악 및 제3자 제공업체(운송업체 및 기타 서비스 제공업체)가 제공하는 여행 상품에 대한 당사의 중개 서비스에만 적용됩니다. <br>
 				이와 별개로, 각각의 제3자 제공업체가 제공하는 모든 티켓 및 서비스(예: 교통/운송, 숙박 또는 휴가 여행 상품)에 해당 제공업체의 이용 약관도 적용됩니다. <br>
@@ -90,10 +101,10 @@
 				3. 당사 웹사이트에서 직접 예약(다이렉트 부킹)<br>
 				선정된 일부 제3자 제공업체 및 교통편의 경우, 당사는 제3자 제공업체의 이름으로 대행하여 제3자 제공업체의 상업적 대리인으로서 당사 웹사이트에서 티켓을 판매합니다. <br>
 				이 경우, 당사 웹사이트에서 온라인으로 안전하게 직접 예약할 수 있는 옵션이 제공되며 해당되는 제3자 제공업체의 예약 페이지로 이동되지 않습니다. <br>
-				SNCF 이동 서비스는 Omio Voyages SAS(Atout France(Registre des opérateurs de voyages et de séjours) 등록 번호: IM075150024, 회사 주소: 27 rue Paul Bert, 78800 Houilles, France, 재정 보증사: APST, 15 avenue Carnot, 75017 Paris, France)가 단독으로 중개합니다. <br>
-				Omio Voyages SAS의 전문가 민사책임에 대한 자세한 내용은 다음과 같습니다. <br>
+				SNCF 이동 서비스는 YATA Voyages SAS(Atout France(Registre des opérateurs de voyages et de séjours) 등록 번호: IM075150024, 회사 주소: 27 rue Paul Bert, 78800 Houilles, France, 재정 보증사: APST, 15 avenue Carnot, 75017 Paris, France)가 단독으로 중개합니다. <br>
+				YATA Voyages SAS의 전문가 민사책임에 대한 자세한 내용은 다음과 같습니다. <br>
 				i) 보험 중개사: Cabinet FACT SarL, 14 place du Chapître, 51100 Reims, France; <br>
-				ii) 보험사: Allianz IARD, 87 rue de Richelieu, 75002 Paris, France. Omio Voyages SAS는 Omio Travel GmbH의 자회사입니다. 예약 절차를 위해, "GoEuro" 및 "당사"라는 용어에는 Omio Travel GmbH 및 Omio Voyages SAS가 포함됩니다.<br>
+				ii) 보험사: Allianz IARD, 87 rue de Richelieu, 75002 Paris, France. YATA Voyages SAS는 YATA Travel GmbH의 자회사입니다. 예약 절차를 위해, "GoEuro" 및 "당사"라는 용어에는 YATA Travel GmbH 및 YATA Voyages SAS가 포함됩니다.<br>
 				<br>
 				당사 웹사이트에서 교통편을 예약하는 경우 당사 개인정보 보호정책에 따라 필요한 데이터(예: 여행객의 이름, 이메일 주소, 결제 정보)를 수집합니다. <br>
 				당사는 이동 서비스 제공업체의 상업적 대리인으로서 관련된 제공업체에 해당 예약을 제출합니다. 티켓은 해당되는 제3자 제공업체를 대신하여 판매됩니다.<br>
@@ -111,9 +122,9 @@
 				이러한 계약은 여행 서비스 제공을 목적으로 하며 특정 날짜 또는 이행 기간에 제공되는 것이므로 일반적으로 사용자는 철회 권한이 없습니다(독일 민법 또는 BGB의 312g절 2항, 1조 제9호).<br>
 				<br>
 				당사 웹사이트에서 교통/운송 및 이동 서비스의 직접 예약(다이렉트 부킹)은 제공된 결제 방법으로만 가능합니다. <br>
-				당사는 GoEuro Corp.의 자회사인 Omio Services GmbH(Warschauer Platz 12, 10245 Berlin, VAT ID DE349107232)를 통해 결제 대금을 징수합니다. <br>
-				GoEuro와 Omio Service GmbH는 관련된 각각의 제3자 제공업체를 대신하여 결제 대금을 징수할 수 있다는 승인을 받았습니다. <br>
-				예약 절차를 위해, "GoEuro" 및 "당사"라는 용어에는 Omio Services GmbH가 포함됩니다. <br>
+				당사는 GoEuro Corp.의 자회사인 YATA Services GmbH(Warschauer Platz 12, 10245 Berlin, VAT ID DE349107232)를 통해 결제 대금을 징수합니다. <br>
+				GoEuro와 YATA Service GmbH는 관련된 각각의 제3자 제공업체를 대신하여 결제 대금을 징수할 수 있다는 승인을 받았습니다. <br>
+				예약 절차를 위해, "GoEuro" 및 "당사"라는 용어에는 YATA Services GmbH가 포함됩니다. <br>
 				GoEuro에 결제가 성공적으로 처리되면, 사용자는 이동 서비스 제공업체에 대한 결제 책임을 이행 완료한 것이며 채무 상환 의무가 없습니다.<br>
 				<br>
 				신용카드로 예약 대금을 결제할 때, 사용자는 해당 신용카드의 명시된 예약 수수료를 포함하여 적용되는 이동 서비스의 수수료를 당사 시행 파트너 또는 결제 서비스 제공업체가 징수한다는 것에 명확하게 동의합니다. <br>
@@ -151,7 +162,7 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사 웹사이트에서 직접 예약하는 경우, 본 이용 약관에 따라 사용자에게 제공되는 서비스에 대해 예약 수수료가 부과됩니다. <br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서비스 수수료 금액은 예약마다 다르며, 예약 시 표시됩니다. 외화로 결제하는 경우, 외환 거래 수수료도 적용될 수 있습니다.<br>
 				<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사의 서비스 수수료는 환불되지 않는다는 사실을 참고하시기 바랍니다. 이 수수료는 예약이 확정되면 이행되는 Omio의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중개 서비스에 대해 부과되기 때문입니다.<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사의 서비스 수수료는 환불되지 않는다는 사실을 참고하시기 바랍니다. 이 수수료는 예약이 확정되면 이행되는 YATA의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중개 서비스에 대해 부과되기 때문입니다.<br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2. 카드 처리 수수료<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;준거법에 명시된 대로, 특정 결제 방법 즉, 법인 카드 또는 신용카드(예: 아메리칸 익스프레스 또는 다이너스)를 사용하는 경우 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이에 대한 추가 수수료도 사용자에게 부과됩니다. <br>
@@ -164,15 +175,15 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일반적으로 예약 절차를 진행하는 동안 당사가 주요 조건을 사용자에게 알리지만, 예약을 완료하기 전에 제3자 이용 약관을 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;숙지하시기 바랍니다.<br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사용자는 새로 발급된 티켓 가격의 차액 및 제3자 제공업체가 부과하는 해당되는 수수료를 지불해야 할 수 있습니다. <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사 헬프 센터를 통해 항공 또는 선박 티켓을 변경하거나 취소하려는 경우, Omio는 고객 서비스 팀이 제공한 서비스에 대한 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경 또는 취소 수수료를 부과할 수 있습니다. <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사의 서비스 수수료에는 제3자 제공업체가 그들의 이용 약관에 따라 최종적으로 부과하는 금액은 포함되지 않습니다. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omio 서비스 수수료는 환불되지 않습니다.<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사 헬프 센터를 통해 항공 또는 선박 티켓을 변경하거나 취소하려는 경우, YATA는 고객 서비스 팀이 제공한 서비스에 대한 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경 또는 취소 수수료를 부과할 수 있습니다. <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사의 서비스 수수료에는 제3자 제공업체가 그들의 이용 약관에 따라 최종적으로 부과하는 금액은 포함되지 않습니다. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YATA 서비스 수수료는 환불되지 않습니다.<br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사 헬프 센터를 통해 변경 또는 취소를 요청하는 경우, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;항공권은 출발 시간 최소 24시간 전, 선박권은 최소 72시간 전에 해당 요청을 제출해야 합니다. <br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경 또는 취소에는 해당 제3자 제공업체의 이용 약관이 적용될 수 있으며, 그러한 약관은 더욱 제한적일 수 있음을 유념하시<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;기 바랍니다.<br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당사는 부정적인 티켓을 변경, 취소, 교체 또는 환불하지 않습니다.<br>
 				<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경 또는 취소에 대한 Omio 서비스 수수료:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경 또는 취소에 대한 YATA 서비스 수수료:<br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;교통/운송 수단	국내 또는 국외	해당 판매세/VAT 포함 수수료(유로*)	예약당/티켓당/승객당<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;항공기	국내	8유로	승객당/처리된 요청당<br>
@@ -218,7 +229,7 @@
 				원인이 당사에게 있지 않은 네트워크 장애 또는 방해에 대해 당사는 책임을 지지 않습니다. 당사는 결함이나 중단없이 서비스의 기술적 운영을 위해 노력하고 있습니다. <br>
 				하지만 중단없이 즉각적인 서비스 가용성에 대한 책임이나 의무를 장담할 수는 없습니다. 특히, 기술적 지연 및 장애와 그로 인한 손해에 대한 책임이나 의무를 장담할 수 없습니다.<br>
 				<br>
-				2021년 4월 29일에 제정된 철도 승객의 권리와 책임에 대한 유럽 연합 의회 및 이사회의 규정 (EU) 2021/782가 열차 티켓 판매 중개사인 Omio에 적용됩니다. <br>
+				2021년 4월 29일에 제정된 철도 승객의 권리와 책임에 대한 유럽 연합 의회 및 이사회의 규정 (EU) 2021/782가 열차 티켓 판매 중개사인 YATA에 적용됩니다. <br>
 				여기에서 모든 EU 공식 언어로 사용자의 권리 및 책임에 대한 요약본을 볼 수 있습니다. 또한 철도 승객으로서의 사용자 권리와 관련된 궁금한 사항은 헬프 센터를 통해 당사의 고객 서비스 팀에 문의할 수 있습니다.<br>
 				<br>
 				당사 웹사이트에는 다른 사이트로 연결되는 링크가 포함되어 있으며, 당사는 그러한 사이트를 운영하거나 관리하지 않으며 책임을 지지 않습니다. <br>
@@ -278,9 +289,9 @@
 				날짜: 2021년 9월<br>
 				<br>
 				GoEuro Corp.은 미국 델라웨어의 커머셜 레지스터에 No. 4973690으로 등록되어 있습니다.<br>
-				Omio Travel GmbH, AG Berlin Charlottenburg HRB 138345<br>
+				YATA Travel GmbH, AG Berlin Charlottenburg HRB 138345<br>
 				<br>
-				Omio Voyages SAS, Registre de Commerce et des Sociétés: Paris 810 351 437<br>
+				YATA Voyages SAS, Registre de Commerce et des Sociétés: Paris 810 351 437<br>
 				<br>
 				우편 주소:<br>
 				</p>
@@ -295,6 +306,5 @@
 				<a href="footer3.html">개인정보 처리방침</a>
 			</div>
 	</footer>
-	</header>
 	
  </body>

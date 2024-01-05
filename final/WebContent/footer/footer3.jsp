@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="auto">
 
@@ -16,36 +17,45 @@
  </head>
  <body>
  	<header>
-	<div class="headDiv">
+		<div class="headDiv">
 			<ul class="head">
-				<li class="bigTitle"><a href="../main.jsp">YATA</a></li>
-				
+				<li class="bigTitle"><a href="main.jsp">YATA</a></li>
+
 				<li>
 					<ul class="right">
-						<li class="language">
-							<select name="language" id="language">
+						<li class="language"><select name="language" id="language">
 								<option value="한국어">한국어</option>
 								<option value="영어">English</option>
 								<option value="중국어">中文</option>
 								<option value="일본어">日本語</option>
-							</select>
-						</li>
-						<li class="myres"><a href="../myReservation.jsp" >나의예약</a></li>
-						<li class="login"><a href="../login.html" >로그인</a></li>
+						</select></li>
+						<li class="myres"><a href="../myPage.m">마이페이지</a></li> 
+						<% String
+						session_id = (String)session.getAttribute("ID");
+						if(session_id==null){ 
+						%>
+						<li class="login"><a href="../login.jsp">로그인</a></li> 
+						<% }else{ 
+						%>
+						<li class="login"><a href="../logout.m">로그아웃</a></li> 
+						<% 
+						} 
+						%>
 					</ul>
 				</li>
 			</ul>
 		</div>
+	</header>
 		<section class="bg-light">
 			<div class="container bg-white" style="border: 1px solid #7d9bfd; border-radius: 16px;">
 			<br><br>
 			<h2>개인정보 처리방침</h2>
 			<br><br>
 			<p>
-				Warschauer Platz 12, 10245 Berlin, Germany에 본사를 두고 있는 델라웨어 소재의 GoEuro Corp.은 자회사 및 제휴사와 함께("당사", "자사", "저희", "GoEuro" 또는 "Omio")
+				Warschauer Platz 12, 10245 Berlin, Germany에 본사를 두고 있는 델라웨어 소재의 GoEuro Corp.은 자회사 및 제휴사와 함께("당사", "자사", "저희", "GoEuro" 또는 "YATA")
 				사용자의 개인정보 보호 권리를 존중하며 개인 정보를 안전하게 보호하기 위한 책임을 지고 있습니다. <br>
-				GoEuro Corp.은 GoEuro 및 Omio 웹사이트(총칭, 당사 "서비스 사이트")와 GoEuro 또는 Omio 모바일 애플리케이션(총칭, "앱")의 운영사이며, 일반 데이터 보호 규정("GDPR")에 정의된 대로 데이터 "관리사"입니다. <br>
-				info@omio.com을 통해 당사에 연락하거나 privacy@omio.com을 통해 데이터 보호 담당 부서에 연락할 수 있습니다. <br>
+				GoEuro Corp.은 GoEuro 및 YATA 웹사이트(총칭, 당사 "서비스 사이트")와 GoEuro 또는 YATA 모바일 애플리케이션(총칭, "앱")의 운영사이며, 일반 데이터 보호 규정("GDPR")에 정의된 대로 데이터 "관리사"입니다. <br>
+				info@YATA.com을 통해 당사에 연락하거나 privacy@YATA.com을 통해 데이터 보호 담당 부서에 연락할 수 있습니다. <br>
 				서비스 사이트 또는 앱을 통해 제3자 온라인 서비스와 연결되는 경우, 당사의 개인정보 보호정책이 적용되지 않으므로 사용자는 해당 제3자 사이트의 개인정보 보호정책을 주의깊게 살펴봐야 합니다.<br>
 				<br>
 				GDPR 및 독일 연방 데이터 보호법(BDSG)에 따라 당사가 사용자의 개인 데이터를 수집하고 처리하는 방법에 대해 알려 드리고자 합니다.<br>
@@ -71,7 +81,7 @@
 				당사는 보고 또는 사기 분석을 위해 정보의 일부분이 숨겨진 신용카드 데이터(예: “511111******1111”)만 보관합니다. <br>
 				서비스 사이트 또는 앱을 통해 다른 사람 대신 예약하는 경우(예: 여행 동반자, 비즈니스 출장) 그러한 동반자 또는 비즈니스에 대한 개인 정보를 제공해 달라고 요청합니다. <br>
 				그러한 모든 당사자의 정보를 사용자가 본인의 계정에서 당사에 제공하면 해당 당사자는 자신의 정보를 확인하지 못할 수 있으므로, 정보를 제공하기 전에 당사자의 동의를 얻어야 합니다. <br>
-				여행 동반자가 자신의 정보를 수정하거나 삭제해야 하는 경우 privacy@omio.com을 통해 당사에 연락할 수 있습니다.<br>
+				여행 동반자가 자신의 정보를 수정하거나 삭제해야 하는 경우 privacy@YATA.com을 통해 당사에 연락할 수 있습니다.<br>
 				<br>
 				당사는 예약 관련 데이터를 10년 동안 보관하며, 이후에 거래법 및 세법에 따라 필요한 정보를 법적 보관 기간(일반적으로 계약/예약을 체결한 후 10년) 동안 유지합니다.<br>
 				<br>
@@ -92,7 +102,7 @@
 				e) 당사는 때때로 사용자에게 설문조사 참여를 요청할 수도 있습니다. 이러한 설문조사는 당사가 시장을 조사하고, 서비스 사이트 및 앱의 이용 경험 개선 방법을 분석하며, 상품의 품질과 기능성을 개선하는 데 유용합니다.<br> 
 				당사는 사용자가 설문조사 응답을 제출할 때 제공한 데이터를 수집합니다.<br>
 				<br>
-				이 섹션에 설명된 당사의 데이터 처리 방식에 이의가 있고, 그러한 방식을 사용자가 직접 거부할 수 있는 방법이 없는 경우 privacy@omio.com을 통해 당사에 이의를 제기해 주시기 바랍니다.<br>
+				이 섹션에 설명된 당사의 데이터 처리 방식에 이의가 있고, 그러한 방식을 사용자가 직접 거부할 수 있는 방법이 없는 경우 privacy@YATA.com을 통해 당사에 이의를 제기해 주시기 바랍니다.<br>
 				<br>
 				서비스 사이트 및 앱은 성인만 이용하도록 만들어졌습니다. 당사는 만 13세 미만의 어린이에 대한 개인 정보를 고의로 수집하지 않습니다. <br>
 				당사는 만 13세 미만의 어린이가 서비스 사이트 또는 앱을 통해 개인 정보를 제출했다는 사실을 알게 되면, 
@@ -198,7 +208,7 @@
 				위 링크를 클릭하면, 이후에 사용자가 서비스 사이트를 방문할 때 사용자가 거부한 사항이 인지될 수 있는 영구 쿠키가 설정됩니다. <br>
 				사용자의 브라우저에 있는 모든 쿠키를 삭제한 후에는 반드시 이 옵션을 다시 설정해야 합니다. 옵트아웃 쿠키는 특정 디바이스, 브라우저, 도메인을 사용해서 서비스 사이트를 방문할 때 사용자 추적을 방지합니다. <br>
 				다른 디바이스나 브라우저의 쿠키를 차단하려면 모든 디바이스/브라우저에서 옵트아웃 버튼을 클릭하여 옵트아웃 쿠키를 설정해야 합니다. <br>
-				다른 상위 수준의 도메인(예: goeuro.com/goeuro.de 또는 omio.com/omio.it)에 포함된 서비스 사이트를 방문할 때도 마찬가지입니다. <br>
+				다른 상위 수준의 도메인(예: goeuro.com/goeuro.de 또는 YATA.com/YATA.it)에 포함된 서비스 사이트를 방문할 때도 마찬가지입니다. <br>
 				앱에서 추적 기능을 차단하려면 앱의 옵트아웃 기능을 사용하십시오(아래 참조).<br>
 				<br>
 				7. 전환 추적<br>
@@ -235,13 +245,13 @@
 				캐나다에 거주하는 경우 이 링크를 사용하십시오. http://optout.aboutads.info/?c=3&lang=en<br>
 				<br>
 				또한 다음 링크를 클릭하여 언제든지 GoEuro가 모든 전환 추적 제공업체에 데이터를 전송하지 못하도록 설정할 수 있습니다. <br>
-				https://www.omio.co.kr/privacy-policy<br>
+				https://www.YATA.co.kr/privacy-policy<br>
 				<br>
 				위 링크를 클릭하면, 이후에 사용자가 서비스 사이트를 방문할 때 사용자가 거부한 사항이 인지될 수 있는 영구 쿠키가 설정됩니다. <br>
 				사용자의 브라우저에 있는 모든 쿠키를 삭제한 후에는 반드시 이 옵션을 다시 설정해야 합니다.<br> 
 				옵트아웃 쿠키는 특정 디바이스, 브라우저, 도메인을 사용해서 당사 웹사이트를 방문할 때 사용자 추적을 방지합니다. <br>
 				다른 디바이스나 브라우저의 쿠키를 차단하려면 모든 디바이스/브라우저에서 옵트아웃 버튼을 클릭하여 옵트아웃 쿠키를 설정해야 합니다. <br>
-				다른 상위 수준의 도메인(예: goeuro.com/goeuro.de 또는 omio.com/omio.it)에 포함된 당사 웹사이트를 방문할 때도 마찬가지입니다. <br>
+				다른 상위 수준의 도메인(예: goeuro.com/goeuro.de 또는 YATA.com/YATA.it)에 포함된 당사 웹사이트를 방문할 때도 마찬가지입니다. <br>
 				앱에서 추적 기능을 차단하려면 앱의 옵트아웃 기능을 사용하십시오(아래 참조).<br>
 				<br>
 				8. 웹 분석 및 통계/Google 애널리틱스<br>
@@ -298,8 +308,8 @@
 				당사는 지체없이 사용자에게 이를 통지할 것이며, 가능한 경우 그러한 상황이 발생했다는 사실을 인지한 후 72시간 내에 알려 드립니다. <br>
 				이 경우, 당사는 해당 법률에 따라 그러한 위반을 정부 기관에도 통지합니다.<br>
 				<br>
-				<span>II. GoEuro/Omio 앱</span><br>
-				GoEuro 또는 Omio 애플리케이션(통칭 "앱")은 GoEuro가 제공하는 오퍼 및 서비스에 액세스할 수 있는 대체 방법입니다. <br>
+				<span>II. GoEuro/YATA 앱</span><br>
+				GoEuro 또는 YATA 애플리케이션(통칭 "앱")은 GoEuro가 제공하는 오퍼 및 서비스에 액세스할 수 있는 대체 방법입니다. <br>
 				앱은 서비스 사이트와 동일한 법률에 따라, 동일한 목적으로, 동일한 방법으로 데이터를 기록, 처리, 활용합니다. <br>
 				개인정보 보호정책 중에서 다음 내용이 앱에 적용됩니다.<br>
 				<br>
@@ -345,7 +355,7 @@
 				3. 푸시 메시지<br>
 				모바일 디바이스를 적절하게 구성한 경우, 앱이 사용자에게 푸시 메시지를 보낼 수 있습니다. <br>
 				예를 들어, GoEuro에 대한 업데이트 사항, 상태 업데이트, 마케팅 캠페인, 기타 뉴스를 제공하거나 새로운 서비스, 제품, 기능을 소개하는 메시지를 보낼 수 있습니다. <br>
-				푸시 메시지에는 GoEuro 또는 Omio 또는 제3자의 오퍼(예: 여행, 숙박) 광고도 포함될 수 있습니다.<br>
+				푸시 메시지에는 GoEuro 또는 YATA 또는 제3자의 오퍼(예: 여행, 숙박) 광고도 포함될 수 있습니다.<br>
 				<br>
 				앱 설정에서 마케팅 푸시 메시지를 비활성화하거나 디바이스의 운영체제 환경설정에서 푸시 메시지를 비활성화하여 언제든지 무료로 마케팅 푸시 메시지 수신 동의를 철회할 수 있습니다.<br>
 				<br>
@@ -367,20 +377,20 @@
 				<br><br>
 				<span>III. 당사가 사용자의 데이터를 공유하는 대상</span><br>
 				1. 자회사의 서비스 처리 방식<br>
-				GoEuro Corp.의 서비스 제공업체인 Omio Travel GmbH 및 Omio Services GmbH(Warschauer Platz 12, 10245 Berlin, Germany)는
+				GoEuro Corp.의 서비스 제공업체인 YATA Travel GmbH 및 YATA Services GmbH(Warschauer Platz 12, 10245 Berlin, Germany)는
 				 특히 컴퓨터 시스템을 운영하고, 주문 처리를 담당하며, 고객 서비스를 수행합니다. <br>
 				 당사는 제품 및 서비스 개선을 위해 당사의 제휴사와 사용자의 정보를 공유할 수 있습니다. <br>
 				 해당 제휴사는 사용자의 정보에 액세스할 수 있는 범위 내에서, 최소한 본 개인정보 보호정책에 설명된 관례만큼 제한적인 수준으로 관례를 따릅니다.<br>
 				<br>
-				Omio Travel GmbH 및 Omio Services GmbH는 GoEuro Corp.의 자회사입니다. <br>
-				사용자의 개인 데이터는 Omio Travel GmbH 및/또는 Omio Services GmbH에 전달되거나 GoEuro Corp.을 대신하여
-				 Omio Travel GmbH 및/또는 Omio Services GmbH가 직접 수집합니다. <br>
-				 Omio Travel GmbH 및 Omio Services GmbH는 서비스 사이트, 앱, 관련 플랫폼 운영을 위해 GoEuro Corp. 
+				YATA Travel GmbH 및 YATA Services GmbH는 GoEuro Corp.의 자회사입니다. <br>
+				사용자의 개인 데이터는 YATA Travel GmbH 및/또는 YATA Services GmbH에 전달되거나 GoEuro Corp.을 대신하여
+				 YATA Travel GmbH 및/또는 YATA Services GmbH가 직접 수집합니다. <br>
+				 YATA Travel GmbH 및 YATA Services GmbH는 서비스 사이트, 앱, 관련 플랫폼 운영을 위해 GoEuro Corp. 
 				 대신 서비스를 수행하고 연관된 서비스를 제공하기 위해서만 본 개인정보 보호정책에 따라 사용자의 데이터를 처리합니다. <br>
-				 따라서 이 개인정보 보호정책은 Omio Travel GmbH 및 Omio Services GmbH의 데이터 처리 방식에도 적용됩니다. <br>
-				 privacy@omio.com을 통해 데이터 보호 담당 부서에 연락할 수 있습니다.<br>
+				 따라서 이 개인정보 보호정책은 YATA Travel GmbH 및 YATA Services GmbH의 데이터 처리 방식에도 적용됩니다. <br>
+				 privacy@YATA.com을 통해 데이터 보호 담당 부서에 연락할 수 있습니다.<br>
 				<br>
-				계약에 따라, 당사는 Omio Travel GmbH 및 Omio Services GmbH가 본 개인정보 보호정책의 조항을 준수하여 
+				계약에 따라, 당사는 YATA Travel GmbH 및 YATA Services GmbH가 본 개인정보 보호정책의 조항을 준수하여 
 				앞서 언급한 목적으로만 사용자의 데이터를 처리하고 해당되는 모든 데이터 보호 및 데이터 보안 법률과 규정을 의무적으로 지키도록 합니다.<br>
 				<br>
 				2. 예약과 관련된 데이터 전송<br>
@@ -391,9 +401,9 @@
 				 제3자 제공업체는 해당되는 개별 업체의 개인정보 보호정책에 따라 각자의 책임 하에 사용자의 개인 데이터를 처리합니다. <br>
 				 따라서 예약하기 전에 그러한 교통/운송 서비스 제공업체의 개인정보 보호정책을 주의 깊게 살펴보시기 바랍니다.<br>
 				<br>
-				예약은 당사의 자회사인 Omio Voyages SAS에서 처리될 수도 있습니다. <br>
-				이 경우, 당사는 Omio Voyages SAS에 필수 데이터를 전송합니다. <br>
-				그러면 예약 절차를 완료하기 위해서만 당사를 대신하여 Omio Voyages SAS가 해당 데이터를 처리합니다.<br>
+				예약은 당사의 자회사인 YATA Voyages SAS에서 처리될 수도 있습니다. <br>
+				이 경우, 당사는 YATA Voyages SAS에 필수 데이터를 전송합니다. <br>
+				그러면 예약 절차를 완료하기 위해서만 당사를 대신하여 YATA Voyages SAS가 해당 데이터를 처리합니다.<br>
 				<br>
 				특정 국가와 관련된 예약(현재는 러시아, 우크라이나, 폴란드)은 당사 파트너인 Amadeus IT Group SA(Salvador de Madariaga 1, Madrid, 28027, Spain) 및 해당 제휴사가 처리합니다. <br>
 				그러한 예약의 경우, 당사가 Amadeus에 사용자의 예약 데이터를 전송하면 그들의 데이터 보호정책에 따라 이 업체의 책임 하에 데이터를 처리합니다. <br>
@@ -492,7 +502,7 @@
 				팩스: +49 (0)30 2155050<br>
 				이메일: mailbox@datenschutz-berlin.de<br>
 				<br>
-				이 보호정책 또는 사용자의 개인 정보에 관한 모든 문의 사항, 불만 또는 질문은 당사의 데이터 보호 담당 부서(privacy@omio.com)에 보내야 합니다.<br>
+				이 보호정책 또는 사용자의 개인 정보에 관한 모든 문의 사항, 불만 또는 질문은 당사의 데이터 보호 담당 부서(privacy@YATA.com)에 보내야 합니다.<br>
 				<br>
 				당사는 때때로 또는 법률 변경, 기술 또는 비즈니스 개발에 따라 필요한 경우 본 개인정보 보호정책을 변경하거나 업데이트할 수 있습니다. <br>
 				당사가 개인정보 보호정책을 업데이트하면, 해당 법률에 따라 당사가 변경하는 사항의 중요성에 맞게 적절한 방법으로 사용자에게 이를 통지합니다.<br>
@@ -507,6 +517,5 @@
 				<a href="footer3.html">개인정보 처리방침</a>
 			</div>
 	</footer>
-	</header>
 	
  </body>

@@ -49,7 +49,7 @@
 		</div>
 	</header>
 
-  <section class="bg-light">
+  <section>
     <form action="login.m"> <!-- 헤더 밑 푸터 위 전체 구역-->
       <div class="container py-5 "><!--헤더 밑 푸터위 전체 구역 컨테이너-->
         <div class="form-signin py-4 m-auto border-r 	login_bg"> <!-- 로그인화면 뒷 배경(박스)-->

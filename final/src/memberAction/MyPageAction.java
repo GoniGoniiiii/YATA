@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MemberDAO;
+import dao.PayDAO;
 import dto.Member;
+import dto.Point;
 
 public class MyPageAction implements Action{
 	
@@ -16,6 +18,12 @@ public class MyPageAction implements Action{
 
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("ID");
+		
+		PayDAO paydao = new PayDAO();
+		Point point = paydao.showPoint(id);
+		session.setAttribute("POINT", point);
+		
+		
 		Member member = dao.search(id);
 		String num = member.getPhone_number();
 		String num1 = num.substring(0,3);

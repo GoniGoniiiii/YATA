@@ -50,7 +50,7 @@
 			</ul>
 		</div>
 	</header>
-        <section class="section  bg-light w-100 pt-5">
+        <section class="section w-100 pt-5">
             <div class="section1 bg-white p-3 mx-auto"><!-- section안 배경이 하얀 구역)-->
                 <div class="py-4 text-center" style="border-bottom: 2px solid gray;">
                     <span class="h3 text-center text-black fw-bold">비밀번호 확인</span>
