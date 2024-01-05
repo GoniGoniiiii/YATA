@@ -22,6 +22,16 @@
 
 </head>
 <body>
+	<%
+	 if(session.getAttribute("ID") == null) {
+	%>
+		<script type="text/javascript">
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="login.jsp";
+		</script>
+	<%
+	 }
+	%>
 	<header>
 		<div class="headDiv">
 			<ul class="head">

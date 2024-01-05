@@ -44,9 +44,34 @@ function minus(age) {
         spanElement.innerHTML = " " + inputField.value;
     }
 };
+function chk(quantity) {
+	var adult = parseInt(document.querySelector("input[name='adult']").value);
+    var child = parseInt(document.querySelector("input[name='child']").value);
+    var elderly = parseInt(document.querySelector("input[name='elderly']").value);
+    var total = adult + child + elderly;
+
+    var radioChecked = document.querySelector("input[name='classType']:checked");
+
+    if (!radioChecked || total < quantity) {
+        alert("클래스와 연령을 인원에 맞게 선택해주세요!");
+        return false;
+    }
+
+    return true;
+}
 </script>
 </head>
 <body>
+	<%
+	 if(session.getAttribute("ID") == null) {
+	%>
+		<script type="text/javascript">
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="login.jsp";
+		</script>
+	<%
+	 }
+	%>
 	<header>
 		<div class="headDiv">
 			<ul class="head">
@@ -127,7 +152,7 @@ function minus(age) {
 				</div>
 			</div>
 		</div>
-		<input type="submit" value="좌석지정으로 가기" id="goBtn">
+		<input type="submit" value="좌석지정으로 가기" id="goBtn" onclick="return chk(${quantity})">
 	</form>
 	<footer>
 		<div class="f">

@@ -271,8 +271,10 @@ public class MemberDAO {
 	
 	// 포인트 생성
 		public int createPoint(String id) {
+			openConnection();
 			String sql = "insert into Point values(?,0,now())";
 			try {
+				
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, id);
 				

@@ -23,13 +23,12 @@ public class MemberAddAction implements Action{
 		member.setEmail(request.getParameter("emailId")+"@"+request.getParameter("selectEmail"));
 		
 		int res = dao.join(member);
-		int rs = dao.createPoint(member.getMember_id());
-		
-		if(rs!=0) {
-			System.out.println("포인트 실패");
-		}
 		
 		if(res != 0) {
+			int rs = dao.createPoint(member.getMember_id());
+			if(rs!=0) {
+				System.out.println("포인트 실패");
+			}
 			return "/final/login.jsp";
 		}else {
 			return "/final/join.jsp";

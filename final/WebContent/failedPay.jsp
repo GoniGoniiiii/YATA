@@ -10,6 +10,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
+   <%
+    if(session.getAttribute("ID") == null) {
+   %>
+      <script type="text/javascript">
+         alert("로그인이 필요한 서비스입니다.");
+         location.href="login.jsp";
+      </script>
+   <%
+    }
+   %>
 	<header>
 		<div class="headDiv">
 			<ul class="head">
@@ -25,18 +35,7 @@
 							</select>
 						</li>
 						<li class="myres"><a href="myPage.m" >마이페이지</a></li>
-	<%
-		String session_id = (String)session.getAttribute("ID");
-		if(session_id==null){
-	%>
-						<li class="login"><a href="login.jsp" >로그인</a></li>
-	<%
-		}else{
-	%>
-						<li class="login"><a href="logout.m">로그아웃</a></li>
-	<%
-		}
-	%>
+						<li class="login"><a href="login.jsp">로그인</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -44,22 +43,22 @@
 	</header>
     <div class="container-expand">
         <section> <!--헤더 밑 첫번째 구역 전체-->
-            <div class="text-center w-100 mb-3 div1">2023년 12월 25일(월) 17:00</div>
+            <div class="text-center w-100 mb-3 div1">${date }</div>
             <div class="section1-1"><!-- 서울 -> 부산 -->
                 <div class="result">
                     <div class="py-4 text-center">
                         <img src="./img/airplane.png" alt="airplane"><br><br>
-                        <h3 class="tw-bold">24:15</h3><br>
-                        <h3 class="tw-bold">서울</h3>
+                        <h3 class="tw-bold">${deTime }</h3><br>
+                        <h3 class="tw-bold">${trans.departure_station }</h3>
                     </div>
                     <div class="py-5 m-auto">
-                        <h3 class="fw-bold fs-3 mb-3">대한항공 KE1083<br>
-                            <h3 class="tw-bold text-secondary">---24h 55m---</h3>
+                        <h3 class="fw-bold fs-3 mb-3">${trans.transportation_type } ${trans.transportation_number }<br>
+                            <h3 class="tw-bold text-secondary">---${schedule.total_time }---</h3>
                     </div>
                     <div class="py-4 text-center">
                         <img src="./img/airplane.png" alt="airplane"><br><br>
-                        <h3 class="tw-bold">17:10</h3><br>
-                        <h3 class="tw-bold">부산</h3>
+                        <h3 class="tw-bold">${arrTime }</h3><br>
+                        <h3 class="tw-bold">${trans.arrival_station }</h3>
                     </div>
                 </div>
             </div>
